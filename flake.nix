@@ -22,7 +22,7 @@
       system = "x86_64-linux";
       modules = [
          ./configuration.nix
-         k0s-nix.nixosModules.controller
+         k0s-nix.nixosModules
       ];
     };
   };
