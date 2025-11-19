@@ -11,14 +11,14 @@
   outputs = { self, nixpkgs, k0s-nix, ... }@inputs:
   {
     # default
-    nixosConfigurations.nixos = {
+    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
        modules = [
          ./configuration.nix
       ];
     };
     # Master
     nixosConfigurations.controller = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+      system = "x86_64-linux"sudo nixos-rebuild switch --flake .#nixos;
       modules = [
          ./configuration.nix
          k0s-nix.nixosModules.default
