@@ -49,7 +49,7 @@
   services.k0s = {
     enable = true;
     role = "controller";
-    tokeFile = "/etc/k0s/k0stoken";
+    tokenFile = "/etc/k0s/k0stoken";
   };
 
   system.stateVersion = "25.05";
