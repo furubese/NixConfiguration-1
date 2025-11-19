@@ -8,15 +8,16 @@
     k0s-nix.url = "github:johbo/k0s-nix"
   };
 
-  outputs = { self, nixpkgs, ... }:
+  outputs = { self, nixpkgsa, k0s-nix, ... }:
   let
     system = "x86_64-linux";
   in
   {
      nixosConfigurations.controller = nixpkgs.lib.nixosSystem {
        inherit system;
-       module = [
+       modules = [
           ./configuration.nix
+          k0s-nix.nixosModules.default
        ];
      };
   };
