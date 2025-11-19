@@ -5,7 +5,7 @@
   inputs = {
     # NixOS official package source
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
-    k0s-nix.url = "github:johbo/k0s-nix"
+    k0s-nix.url = "github:johbo/k0s-nix";
   };
 
   outputs = { self, nixpkgsa, k0s-nix, ... }:
