@@ -10,13 +10,20 @@
 
   outputs = { self, nixpkgs, k0s-nix, ... }@inputs:
   {
-     nixosConfigurations.controller = nixpkgs.lib.nixosSystem {
-       system = "x86_64-linux";
+    # default
+    nixosConfigurations.nixos = {
        modules = [
-          ./configuration.nix
-          k0s-nix.nixosModules.default
-       ];
-     };
+         ./configuration.nix
+      ];
+    };
+    # Master
+    nixosConfigurations.controller = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+         ./configuration.nix
+         k0s-nix.nixosModules.default
+      ];
+    };
   };
 }
 
