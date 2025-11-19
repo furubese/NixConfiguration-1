@@ -18,7 +18,7 @@
     };
     # Master
     nixosConfigurations.controller = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux"sudo nixos-rebuild switch --flake .#nixos;
+      system = "x86_64-linux";
       modules = [
          ./configuration.nix
          k0s-nix.nixosModules.default
