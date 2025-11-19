@@ -22,8 +22,12 @@
       system = "x86_64-linux";
       modules = [
          ./configuration.nix
-         k0s-nix.nixosModules.default
+         k0s-nix.nixosModules.k0s-controller
       ];
+      configuration = {
+        services.k0s.enable = true;
+        services.k0s.tokenFile = "etc/k0s/k0stoken";
+      };
     };
   };
 }
